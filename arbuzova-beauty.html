@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arbuzova Beauty — Студия маникюра и ресничек на Комендантском</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --burgundy:#7A2B38;
+  --burgundy-dark:#5E1F2A;
+  --burgundy-light:#A3465A;
+  --rose:#C4727E;
+  --rose-light:#E8B4BC;
+  --cream:#FBF5F3;
+  --warm-white:#FFF9F7;
+  --warm-gray:#F3EDED;
+  --text:#2C1A1E;
+  --text-light:#6B5258;
+  --gold:#C9A96E;
+  --font-display:'Cormorant Garamond',Georgia,serif;
+  --font-body:'Raleway','Helvetica Neue',sans-serif;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);color:var(--text);background:var(--warm-white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{border:none;cursor:pointer;font-family:inherit}
+img{max-width:100%;display:block}
+ul{list-style:none}
+
+/* ===== HEADER ===== */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(251,245,243,0.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(122,43,56,0.08);
+  transition:all 0.4s ease;
+}
+.header.scrolled{box-shadow:0 2px 30px rgba(122,43,56,0.08)}
+.header-inner{
+  max-width:1280px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 40px;
+}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-text{font-family:var(--font-display);font-size:1.5rem;font-weight:500;color:var(--burgundy);letter-spacing:0.02em}
+.logo-text span{font-style:italic;font-weight:400;color:var(--rose)}
+
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{
+  font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--text-light);transition:color 0.3s;position:relative;
+}
+.nav a::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;
+  background:var(--burgundy);transition:width 0.3s;
+}
+.nav a:hover{color:var(--burgundy)}
+.nav a:hover::after{width:100%}
+
+.header-right{display:flex;align-items:center;gap:18px}
+.social-icons{display:flex;gap:10px}
+.social-icons a{
+  width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:transparent;border:1.5px solid var(--rose-light);
+  color:var(--burgundy);font-size:0.75rem;
+  transition:all 0.3s;
+}
+.social-icons a:hover{background:var(--burgundy);color:#fff;border-color:var(--burgundy)}
+.social-icons a svg{width:15px;height:15px;fill:currentColor}
+.header-cta{
+  padding:10px 24px;border-radius:50px;font-size:0.8rem;font-weight:600;
+  letter-spacing:0.06em;text-transform:uppercase;
+  background:linear-gradient(135deg,var(--burgundy),var(--burgundy-light));
+  color:#fff;transition:all 0.3s;
+}
+.header-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(122,43,56,0.3)}
+
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
+.burger span{width:24px;height:2px;background:var(--burgundy);border-radius:2px;transition:0.3s}
+
+/* Mobile menu */
+.mobile-menu{
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;
+  background:rgba(251,245,243,0.98);backdrop-filter:blur(30px);
+  flex-direction:column;align-items:center;justify-content:center;gap:28px;
+}
+.mobile-menu.active{display:flex}
+.mobile-menu a{font-family:var(--font-display);font-size:1.8rem;color:var(--burgundy)}
+.mobile-close{position:absolute;top:20px;right:30px;font-size:2rem;color:var(--burgundy);cursor:pointer}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  background:var(--cream);position:relative;overflow:hidden;
+  padding:120px 40px 80px;
+}
+.hero::before{
+  content:'';position:absolute;top:-200px;right:-200px;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(196,114,126,0.15),transparent 70%);
+}
+.hero::after{
+  content:'';position:absolute;bottom:-100px;left:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(122,43,56,0.08),transparent 70%);
+}
+.hero-inner{
+  max-width:1280px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  position:relative;z-index:1;
+}
+.hero-content{animation:fadeUp 1s ease both}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 18px;border-radius:50px;
+  background:rgba(122,43,56,0.08);color:var(--burgundy);
+  font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  margin-bottom:24px;
+}
+.hero-badge svg{width:14px;height:14px}
+.hero h1{
+  font-family:var(--font-display);font-size:clamp(2.4rem,5vw,3.8rem);
+  font-weight:500;line-height:1.15;color:var(--burgundy-dark);
+  margin-bottom:20px;
+}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.hero-subtitle{
+  font-size:1.05rem;line-height:1.7;color:var(--text-light);
+  font-weight:300;max-width:500px;margin-bottom:36px;
+}
+.hero-cta-group{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hero-cta-card{
+  display:flex;align-items:center;gap:20px;
+  padding:16px 28px;border-radius:60px;
+  background:#fff;box-shadow:0 8px 40px rgba(122,43,56,0.1);
+}
+.hero-rating{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 14px;border-radius:30px;
+  background:var(--cream);font-size:0.85rem;font-weight:600;color:var(--burgundy);
+}
+.hero-rating svg{width:14px;height:14px;fill:var(--gold)}
+.hero-prices{display:flex;align-items:baseline;gap:8px}
+.hero-price-old{text-decoration:line-through;color:var(--text-light);font-size:0.9rem}
+.hero-price-new{color:var(--burgundy);font-size:1.2rem;font-weight:700}
+.btn-primary{
+  padding:14px 32px;border-radius:50px;
+  background:linear-gradient(135deg,var(--burgundy),var(--burgundy-light));
+  color:#fff;font-size:0.82rem;font-weight:600;
+  letter-spacing:0.06em;text-transform:uppercase;
+  transition:all 0.3s;display:inline-block;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(122,43,56,0.3)}
+.btn-outline{
+  padding:14px 28px;border-radius:50px;
+  border:1.5px solid var(--rose-light);
+  color:var(--burgundy);font-size:0.82rem;font-weight:600;
+  letter-spacing:0.06em;text-transform:uppercase;
+  transition:all 0.3s;display:inline-block;background:transparent;
+}
+.btn-outline:hover{background:var(--burgundy);color:#fff;border-color:var(--burgundy)}
+
+.hero-visual{position:relative;animation:fadeUp 1s 0.2s ease both}
+.hero-img-wrapper{
+  position:relative;border-radius:200px 200px 120px 120px;overflow:hidden;
+  aspect-ratio:4/5;max-width:460px;margin:0 auto;
+  box-shadow:0 30px 80px rgba(122,43,56,0.15);
+}
+.hero-img-wrapper img{width:100%;height:100%;object-fit:cover}
+.hero-float-card{
+  position:absolute;bottom:40px;left:-40px;
+  background:#fff;border-radius:20px;padding:16px 22px;
+  box-shadow:0 12px 40px rgba(0,0,0,0.1);
+  animation:floatY 3s ease-in-out infinite;
+}
+.hero-float-card .label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-light);margin-bottom:4px}
+.hero-float-card .value{font-family:var(--font-display);font-size:1.4rem;color:var(--burgundy);font-weight:600}
+
+/* ===== MARQUEE ===== */
+.marquee{
+  background:var(--burgundy);padding:16px 0;overflow:hidden;position:relative;
+}
+.marquee-track{
+  display:flex;gap:40px;
+  animation:marquee 25s linear infinite;
+  white-space:nowrap;
+}
+.marquee-item{
+  font-size:0.85rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(255,255,255,0.9);display:flex;align-items:center;gap:14px;
+  flex-shrink:0;
+}
+.marquee-item::after{content:'✦';color:var(--rose-light);font-size:0.7rem}
+
+/* ===== SECTIONS COMMON ===== */
+.section{padding:100px 40px}
+.section-header{text-align:center;margin-bottom:60px}
+.section-label{
+  font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--rose);margin-bottom:12px;display:block;
+}
+.section-title{
+  font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);
+  font-weight:500;color:var(--burgundy-dark);line-height:1.2;
+}
+.section-title em{font-style:italic;color:var(--rose)}
+
+/* ===== CTA BANNER ===== */
+.cta-banner{
+  background:var(--warm-gray);padding:60px 40px;text-align:center;
+}
+.cta-banner-inner{max-width:800px;margin:0 auto}
+.cta-banner h2{
+  font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:500;color:var(--burgundy-dark);margin-bottom:12px;
+}
+.cta-banner h2 em{font-style:italic;color:var(--rose)}
+.cta-banner p{color:var(--text-light);font-weight:300;margin-bottom:28px;font-size:1rem}
+
+/* ===== ADVANTAGES ===== */
+.advantages{background:var(--warm-white)}
+.adv-slider{max-width:1200px;margin:0 auto;position:relative;overflow:hidden}
+.adv-track{display:flex;transition:transform 0.6s cubic-bezier(0.4,0,0.2,1)}
+.adv-slide{
+  min-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  padding:20px;
+}
+.adv-slide-content{padding:20px}
+.adv-slide-num{
+  font-family:var(--font-display);font-size:5rem;color:var(--rose-light);
+  line-height:1;margin-bottom:10px;opacity:0.5;
+}
+.adv-slide h3{
+  font-family:var(--font-display);font-size:1.8rem;font-weight:500;
+  color:var(--burgundy-dark);margin-bottom:14px;
+}
+.adv-slide p{color:var(--text-light);font-weight:300;line-height:1.7;font-size:0.95rem}
+.adv-slide-img{
+  border-radius:24px;overflow:hidden;aspect-ratio:4/3;
+  background:var(--warm-gray);display:flex;align-items:center;justify-content:center;
+}
+.adv-slide-img .adv-icon{
+  font-size:5rem;opacity:0.4;
+}
+.adv-controls{
+  display:flex;justify-content:center;gap:12px;margin-top:40px;
+}
+.adv-btn{
+  width:48px;height:48px;border-radius:50%;
+  border:1.5px solid var(--rose-light);background:transparent;
+  color:var(--burgundy);font-size:1.2rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.3s;cursor:pointer;
+}
+.adv-btn:hover{background:var(--burgundy);color:#fff;border-color:var(--burgundy)}
+.adv-dots{display:flex;gap:8px;align-items:center;margin:0 20px}
+.adv-dot{
+  width:8px;height:8px;border-radius:50%;background:var(--rose-light);
+  transition:all 0.3s;cursor:pointer;
+}
+.adv-dot.active{width:24px;border-radius:4px;background:var(--burgundy)}
+
+/* ===== SAFETY ===== */
+.safety{background:var(--cream)}
+.safety-grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.safety-card{
+  background:#fff;border-radius:20px;padding:32px 28px;
+  border:1px solid rgba(122,43,56,0.06);
+  transition:all 0.4s;position:relative;overflow:hidden;
+}
+.safety-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--burgundy),var(--rose));
+  opacity:0;transition:opacity 0.3s;
+}
+.safety-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(122,43,56,0.1)}
+.safety-card:hover::before{opacity:1}
+.safety-card-num{
+  font-family:var(--font-display);font-size:2.2rem;color:var(--rose-light);
+  margin-bottom:12px;font-weight:600;
+}
+.safety-card h4{
+  font-family:var(--font-display);font-size:1.15rem;font-weight:600;
+  color:var(--burgundy-dark);margin-bottom:8px;
+}
+.safety-card p{color:var(--text-light);font-weight:300;font-size:0.88rem;line-height:1.6}
+
+/* ===== SERVICES ===== */
+.services{background:var(--warm-white)}
+.services-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:auto auto;
+  gap:16px;
+}
+.service-card{
+  position:relative;border-radius:20px;overflow:hidden;
+  background:var(--warm-gray);min-height:260px;
+  cursor:pointer;transition:all 0.4s;
+}
+.service-card.wide{grid-column:span 2}
+.service-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(44,26,30,0.7),transparent 60%);
+  transition:opacity 0.3s;
+}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,0,0.15)}
+.service-card:hover .service-bg{transform:scale(1.05)}
+.service-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform 0.6s ease;
+}
+.service-label{
+  position:absolute;bottom:24px;left:24px;z-index:1;
+  font-family:var(--font-display);font-size:1.4rem;font-weight:500;color:#fff;
+}
+
+/* ===== PRICE ===== */
+.price{background:var(--cream)}
+.price-inner{max-width:800px;margin:0 auto}
+.price-category{margin-bottom:6px;border-bottom:1px solid rgba(122,43,56,0.1)}
+.price-cat-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 0;cursor:pointer;user-select:none;
+}
+.price-cat-header h3{
+  font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--burgundy-dark);
+}
+.price-toggle{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--rose-light);color:var(--burgundy);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;transition:all 0.3s;flex-shrink:0;
+}
+.price-category.open .price-toggle{background:var(--burgundy);color:#fff;transform:rotate(45deg)}
+.price-items{max-height:0;overflow:hidden;transition:max-height 0.5s ease}
+.price-category.open .price-items{max-height:1500px}
+.price-item{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:12px 0;border-bottom:1px dashed rgba(122,43,56,0.08);
+}
+.price-item:last-child{border:none;padding-bottom:20px}
+.price-item-name{color:var(--text);font-weight:400;font-size:0.92rem}
+.price-item-cost{
+  color:var(--burgundy);font-weight:600;font-size:0.92rem;
+  white-space:nowrap;margin-left:12px;
+}
+.price-note{
+  font-size:0.78rem;color:var(--text-light);font-weight:300;
+  text-align:center;margin-top:30px;padding:16px;
+  background:rgba(122,43,56,0.04);border-radius:12px;
+}
+
+/* ===== PROMOTIONS ===== */
+.promos{background:var(--warm-white)}
+.promos-grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.promo-card{
+  position:relative;border-radius:24px;overflow:hidden;
+  background:var(--burgundy);padding:40px 30px;color:#fff;
+  min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;
+  transition:all 0.4s;
+}
+.promo-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--burgundy-dark),var(--burgundy-light));
+  opacity:0.9;
+}
+.promo-card:nth-child(2)::before{background:linear-gradient(135deg,var(--rose),var(--burgundy))}
+.promo-card:nth-child(3)::before{background:linear-gradient(135deg,var(--burgundy),var(--gold))}
+.promo-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(122,43,56,0.3)}
+.promo-content{position:relative;z-index:1}
+.promo-tag{
+  display:inline-block;padding:6px 16px;border-radius:30px;
+  border:1px solid rgba(255,255,255,0.3);font-size:0.72rem;
+  letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;
+}
+.promo-card h3{font-family:var(--font-display);font-size:1.8rem;font-weight:500;margin-bottom:10px}
+.promo-card p{font-weight:300;font-size:0.88rem;line-height:1.6;opacity:0.85;margin-bottom:20px}
+.promo-btn{
+  display:inline-block;padding:12px 28px;border-radius:50px;
+  background:#fff;color:var(--burgundy);font-size:0.8rem;font-weight:600;
+  letter-spacing:0.06em;text-transform:uppercase;transition:all 0.3s;
+}
+.promo-btn:hover{background:var(--cream);transform:translateY(-1px)}
+
+/* ===== REVIEWS ===== */
+.reviews{background:var(--cream)}
+.reviews-slider{max-width:1200px;margin:0 auto;overflow:hidden;position:relative}
+.reviews-track{display:flex;gap:20px;transition:transform 0.6s cubic-bezier(0.4,0,0.2,1)}
+.review-card{
+  min-width:calc(33.333% - 14px);background:#fff;border-radius:20px;
+  padding:32px 28px;flex-shrink:0;
+  border:1px solid rgba(122,43,56,0.05);
+  transition:all 0.3s;
+}
+.review-card:hover{box-shadow:0 8px 30px rgba(122,43,56,0.08)}
+.review-stars{display:flex;gap:3px;margin-bottom:14px}
+.review-stars svg{width:16px;height:16px;fill:var(--gold)}
+.review-text{
+  font-size:0.9rem;line-height:1.7;color:var(--text-light);
+  font-weight:300;margin-bottom:18px;
+  display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;
+}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--rose-light),var(--burgundy));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-family:var(--font-display);font-size:1rem;font-weight:600;
+}
+.review-name{font-weight:600;font-size:0.88rem;color:var(--text)}
+.review-date{font-size:0.75rem;color:var(--text-light)}
+.reviews-controls{display:flex;justify-content:center;gap:12px;margin-top:40px}
+
+/* ===== MAP ===== */
+.map-section{background:var(--warm-white)}
+.map-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+}
+.map-info h3{font-family:var(--font-display);font-size:1.6rem;color:var(--burgundy-dark);margin-bottom:20px}
+.map-address{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:20px;border-radius:16px;background:var(--cream);margin-bottom:16px;
+}
+.map-address-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--burgundy),var(--burgundy-light));
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.map-address-icon svg{width:20px;height:20px;fill:#fff}
+.map-address-text .addr{font-weight:500;font-size:0.95rem;margin-bottom:4px}
+.map-address-text .phone{color:var(--burgundy);font-weight:600;font-size:1rem}
+.map-address-text .hours{color:var(--text-light);font-size:0.85rem;font-weight:300;margin-top:4px}
+.map-frame{border-radius:24px;overflow:hidden;aspect-ratio:1/1;background:var(--warm-gray)}
+.map-frame iframe{width:100%;height:100%;border:0}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:var(--burgundy-dark);color:rgba(255,255,255,0.7);
+  padding:60px 40px 30px;
+}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;
+  padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.footer-brand .footer-logo{
+  font-family:var(--font-display);font-size:1.5rem;font-weight:500;
+  color:#fff;margin-bottom:12px;
+}
+.footer-brand .footer-logo span{font-style:italic;color:var(--rose-light)}
+.footer-brand p{font-size:0.85rem;line-height:1.6;font-weight:300;max-width:280px}
+.footer-col h4{
+  font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--rose-light);margin-bottom:16px;
+}
+.footer-col a{display:block;font-size:0.88rem;font-weight:300;margin-bottom:10px;transition:color 0.3s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:24px;font-size:0.78rem;font-weight:300;
+}
+.footer-socials{display:flex;gap:10px}
+.footer-socials a{
+  width:36px;height:36px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,0.6);transition:all 0.3s;
+}
+.footer-socials a:hover{background:var(--rose);border-color:var(--rose);color:#fff}
+.footer-socials a svg{width:16px;height:16px;fill:currentColor}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.fade-in{opacity:0;transform:translateY(24px);transition:all 0.7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-subtitle{margin:0 auto 36px}
+  .hero-cta-group{justify-content:center}
+  .hero-visual{display:none}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .service-card.wide{grid-column:span 2}
+  .safety-grid{grid-template-columns:repeat(2,1fr)}
+  .map-inner{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .section{padding:60px 20px}
+  .header-inner{padding:12px 20px}
+  .nav{display:none}
+  .burger{display:flex}
+  .hero{padding:100px 20px 60px}
+  .promos-grid{grid-template-columns:1fr}
+  .review-card{min-width:85%}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .service-card.wide{grid-column:span 2}
+  .safety-grid{grid-template-columns:1fr}
+  .adv-slide{grid-template-columns:1fr}
+  .adv-slide-img{display:none}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-text">Arbuzova <span>beauty</span></div>
+    </a>
+    <nav class="nav">
+      <a href="#about">О нас</a>
+      <a href="#services">Услуги</a>
+      <a href="#price">Прайс</a>
+      <a href="#promos">Акции</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Адреса</a>
+    </nav>
+    <div class="header-right">
+      <div class="social-icons">
+        <a href="https://instagram.com/arbuzova.beauty/" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://vk.com/arbuzovabeauty" target="_blank" aria-label="VK">
+          <svg viewBox="0 0 24 24"><path d="M13.162 18.994c.5 0 .5-.244.5-.488 0-.488-.674-2.95-3.154-5.4l-.002-.002a10.97 10.97 0 00-.504-.476v-.002c-.675-.598-.675-.95-.203-2.034.472-1.085 2.174-3.27 2.649-4.06.472-.79.472-1.136-.284-1.136H10.89c-.68 0-.68.244-1.157 1.034-.472.79-1.897 4.06-2.37 4.85-.472.79-.947.79-1.42.244-.472-.546-.472-1.78-.472-2.62 0-.842.054-2.032-.13-2.568-.13-.366-.532-.488-.87-.488-1.086 0-2.649 0-3.736.244-.485.11-.757.488-.485.512.746.069 1.283.553 1.427 1.303.338 1.744.338 4.06-.203 5.55-.337.927-.876 1.3-1.35 1.495-.337.138-.337.488.068.488h1.621c.608 0 .879-.244 1.147-.79.608-1.23 1.622-3.756 1.622-3.756s.337-.79.675-.79c.337 0 .675.395.675.79 0 .395-.054 2.327.284 3.756.337 1.43 1.215 1.526 1.755 1.526z"/></svg>
+        </a>
+        <a href="tg://resolve?domain=arbuzovabeauty" aria-label="Telegram">
+          <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </a>
+      </div>
+      <a href="tel:+79992096377" class="header-cta">+7 (999) 209-63-77</a>
+    </div>
+    <div class="burger" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-close" onclick="toggleMobile()">✕</div>
+  <a href="#about" onclick="toggleMobile()">О нас</a>
+  <a href="#services" onclick="toggleMobile()">Услуги</a>
+  <a href="#price" onclick="toggleMobile()">Прайс</a>
+  <a href="#promos" onclick="toggleMobile()">Акции</a>
+  <a href="#reviews" onclick="toggleMobile()">Отзывы</a>
+  <a href="#contacts" onclick="toggleMobile()">Адреса</a>
+  <a href="tel:+79992096377" class="btn-primary" style="margin-top:20px">Позвонить</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        Яндекс — Хорошее место
+      </div>
+      <h1>Уютная студия маникюра, педикюра и <em>ресничек</em> на&nbsp;Комендантском</h1>
+      <p class="hero-subtitle">Мы создали место, где можно забыть о суете, выпить чашку ароматного кофе и&nbsp;доверить свою красоту заботливым рукам наших мастеров</p>
+      <div class="hero-cta-group">
+        <div class="hero-cta-card">
+          <div class="hero-rating">
+            <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            4.9
+          </div>
+          <div class="hero-prices">
+            <span class="hero-price-old">1 500 ₽</span>
+            <span class="hero-price-new">1 200 ₽</span>
+          </div>
+          <a href="https://dikidi.net/199099?p=1.pi-po" target="_blank" class="btn-primary">Записаться</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-wrapper">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--rose-light),var(--burgundy));display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-size:2.5rem;text-align:center;padding:40px">Arbuzova<br><em>beauty</em></div>
+      </div>
+      <div class="hero-float-card">
+        <div class="label">SPA-уход</div>
+        <div class="value">В подарок ✦</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item">SPA-уход массажной свечой в подарок</span>
+    <span class="marquee-item">Сезонное меню напитков</span>
+    <span class="marquee-item">Гарантия 14 дней</span>
+    <span class="marquee-item">Педикюр на реклайнере</span>
+    <span class="marquee-item">DOG-friendly</span>
+    <span class="marquee-item">Кинофильмы на процедуре</span>
+    <span class="marquee-item">-300₽ на первый визит</span>
+    <span class="marquee-item">Парафинотерапия</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">SPA-уход массажной свечой в подарок</span>
+    <span class="marquee-item">Сезонное меню напитков</span>
+    <span class="marquee-item">Гарантия 14 дней</span>
+    <span class="marquee-item">Педикюр на реклайнере</span>
+    <span class="marquee-item">DOG-friendly</span>
+    <span class="marquee-item">Кинофильмы на процедуре</span>
+    <span class="marquee-item">-300₽ на первый визит</span>
+    <span class="marquee-item">Парафинотерапия</span>
+  </div>
+</div>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-banner-inner fade-in">
+    <h2>Узнай стоимость <em>своей</em> процедуры</h2>
+    <p>Три уровня мастеров — мастер, эксперт и топ — выбери подходящий под свой бюджет и пожелания</p>
+    <a href="#price" class="btn-primary">Смотреть прайс →</a>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section class="section advantages" id="advantages">
+  <div class="section-header fade-in">
+    <span class="section-label">Почему нас выбирают</span>
+    <h2 class="section-title">Больше, чем просто <em>маникюр</em></h2>
+  </div>
+  <div class="adv-slider">
+    <div class="adv-track" id="advTrack">
+      <!-- Slide 1 -->
+      <div class="adv-slide">
+        <div class="adv-slide-content">
+          <div class="adv-slide-num">01</div>
+          <h3>Авторский подход к каждой работе</h3>
+          <p>Наши мастера регулярно совершенствуют технику и осваивают новые тренды. Результат, которым хочется любоваться — с первого взгляда.</p>
+        </div>
+        <div class="adv-slide-img"><span class="adv-icon">💅</span></div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="adv-slide">
+        <div class="adv-slide-content">
+          <div class="adv-slide-num">02</div>
+          <h3>SPA-уход массажной свечой — в каждой процедуре</h3>
+          <p>В стоимость любого визита уже включён расслабляющий SPA-ритуал. Аромат, тепло и забота — как завершающий штрих вашего преображения.</p>
+        </div>
+        <div class="adv-slide-img"><span class="adv-icon">🕯️</span></div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="adv-slide">
+        <div class="adv-slide-content">
+          <div class="adv-slide-num">03</div>
+          <h3>Сезонное меню напитков и&nbsp;сладостей</h3>
+          <p>Гречишный чай, свежесваренный кофе на альтернативном молоке, лимонады и снеки — наше меню комплиментов удивляет даже постоянных гостей.</p>
+        </div>
+        <div class="adv-slide-img"><span class="adv-icon">☕</span></div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="adv-slide">
+        <div class="adv-slide-content">
+          <div class="adv-slide-num">04</div>
+          <h3>Самый комфортный педикюр на&nbsp;реклайнере</h3>
+          <p>Мягкое кресло-реклайнер, любимый фильм и белые носочки в подарок после процедуры. Ваши ножки скажут спасибо.</p>
+        </div>
+        <div class="adv-slide-img"><span class="adv-icon">🪑</span></div>
+      </div>
+      <!-- Slide 5 -->
+      <div class="adv-slide">
+        <div class="adv-slide-content">
+          <div class="adv-slide-num">05</div>
+          <h3>Премиальное оборудование и&nbsp;материалы</h3>
+          <p>Только профессиональные покрытия и лучшее оборудование в своём классе. Стойкость, безопасность и комфорт — без&nbsp;компромиссов.</p>
+        </div>
+        <div class="adv-slide-img"><span class="adv-icon">✨</span></div>
+      </div>
+      <!-- Slide 6 -->
+      <div class="adv-slide">
+        <div class="adv-slide-content">
+          <div class="adv-slide-num">06</div>
+          <h3>Гарантия 14 дней на каждую работу</h3>
+          <p>Мы уверены в результате и даём двухнедельную гарантию. Если что-то пошло не так — исправим бесплатно.</p>
+        </div>
+        <div class="adv-slide-img"><span class="adv-icon">🛡️</span></div>
+      </div>
+      <!-- Slide 7 -->
+      <div class="adv-slide">
+        <div class="adv-slide-content">
+          <div class="adv-slide-num">07</div>
+          <h3>DOG-friendly & уют для&nbsp;каждого</h3>
+          <p>Кинофильмы, SOS-корзиночка для девушек, парафинотерапия для нежных рук зимой — мы продумали всё, чтобы вы чувствовали себя как дома.</p>
+        </div>
+        <div class="adv-slide-img"><span class="adv-icon">🐾</span></div>
+      </div>
+    </div>
+    <div class="adv-controls">
+      <button class="adv-btn" onclick="advSlide(-1)">←</button>
+      <div class="adv-dots" id="advDots"></div>
+      <button class="adv-btn" onclick="advSlide(1)">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="section safety" id="safety">
+  <div class="section-header fade-in">
+    <span class="section-label">Ваше здоровье — наш приоритет</span>
+    <h2 class="section-title">Безопасность — <em>система</em>, а не слова</h2>
+  </div>
+  <div class="safety-grid">
+    <div class="safety-card fade-in">
+      <div class="safety-card-num">01</div>
+      <h4>Антисептическая обработка</h4>
+      <p>Каждый инструмент проходит замачивание в специальном дезинфицирующем растворе, уничтожающем все патогенные микроорганизмы.</p>
+    </div>
+    <div class="safety-card fade-in">
+      <div class="safety-card-num">02</div>
+      <h4>Тщательная очистка вручную</h4>
+      <p>После дезинфекции — механическая очистка щёточками под проточной водой с последующей сушкой каждого инструмента.</p>
+    </div>
+    <div class="safety-card fade-in">
+      <div class="safety-card-num">03</div>
+      <h4>Сухожаровая стерилизация</h4>
+      <p>Полный цикл обработки в сухожаровом шкафу — самый надёжный метод устранения любых бактерий, вирусов и спор.</p>
+    </div>
+    <div class="safety-card fade-in">
+      <div class="safety-card-num">04</div>
+      <h4>Герметичное хранение</h4>
+      <p>Стерильные инструменты упакованы в индивидуальные крафт-пакеты и вскрываются исключительно в вашем присутствии.</p>
+    </div>
+    <div class="safety-card fade-in">
+      <div class="safety-card-num">05</div>
+      <h4>Регулярный контроль</h4>
+      <p>Используем специальные индикаторы для постоянной проверки эффективности стерилизации. Никаких допущений — только факты.</p>
+    </div>
+    <div class="safety-card fade-in">
+      <div class="safety-card-num">06</div>
+      <h4>Одноразовые расходники</h4>
+      <p>Пилки, бафы, апельсиновые палочки — всё, что касается вашей кожи, используется однократно и утилизируется после процедуры.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="section-header fade-in">
+    <span class="section-label">Наши направления</span>
+    <h2 class="section-title"><em>Услуги</em> студии</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card wide" onclick="location.href='#price'">
+      <div class="service-bg" style="background:linear-gradient(135deg,#c9a96e33,var(--rose-light));"></div>
+      <span class="service-label">Маникюр</span>
+    </div>
+    <div class="service-card wide" onclick="location.href='#price'">
+      <div class="service-bg" style="background:linear-gradient(135deg,var(--burgundy),var(--rose));"></div>
+      <span class="service-label">Педикюр</span>
+    </div>
+    <div class="service-card" onclick="location.href='#price'">
+      <div class="service-bg" style="background:linear-gradient(135deg,var(--rose-light),#e8b4bc88);"></div>
+      <span class="service-label">Наращивание</span>
+    </div>
+    <div class="service-card" onclick="location.href='#price'">
+      <div class="service-bg" style="background:linear-gradient(135deg,var(--burgundy-light),var(--burgundy-dark));"></div>
+      <span class="service-label">Дизайн ногтей</span>
+    </div>
+    <div class="service-card" onclick="location.href='#price'">
+      <div class="service-bg" style="background:linear-gradient(135deg,#c9a96e,#c9a96e88);"></div>
+      <span class="service-label">Брови и ресницы</span>
+    </div>
+    <div class="service-card" onclick="location.href='#price'">
+      <div class="service-bg" style="background:linear-gradient(135deg,var(--rose),var(--burgundy-light));"></div>
+      <span class="service-label">Макияж и укладка</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="section price" id="price">
+  <div class="section-header fade-in">
+    <span class="section-label">Стоимость</span>
+    <h2 class="section-title">Наш <em>прайс</em></h2>
+  </div>
+  <div class="price-inner">
+    <!-- Маникюр -->
+    <div class="price-category open">
+      <div class="price-cat-header" onclick="togglePrice(this)">
+        <h3>Маникюр</h3>
+        <div class="price-toggle">+</div>
+      </div>
+      <div class="price-items">
+        <div class="price-item"><span class="price-item-name">Маникюр без покрытия</span><span class="price-item-cost">1 200 / 1 400 / 1 600</span></div>
+        <div class="price-item"><span class="price-item-name">Японский маникюр</span><span class="price-item-cost">2 000 / 2 300 / 2 600</span></div>
+        <div class="price-item"><span class="price-item-name">Мужской маникюр</span><span class="price-item-cost">1 300 / 1 500 / 1 700</span></div>
+        <div class="price-item"><span class="price-item-name">С покрытием гель-лаком (снятие и укрепление включены)</span><span class="price-item-cost">2 400 / 2 700 / 3 000</span></div>
+        <div class="price-item"><span class="price-item-name">С покрытием лаком</span><span class="price-item-cost">1 900 / 2 200 / 2 500</span></div>
+        <div class="price-item"><span class="price-item-name">Снятие гель-лака</span><span class="price-item-cost">700</span></div>
+        <div class="price-item"><span class="price-item-name">Наращивание ногтей</span><span class="price-item-cost">3 900 / 4 200 / 4 500</span></div>
+        <div class="price-item"><span class="price-item-name">Коррекция наращивания</span><span class="price-item-cost">3 300 / 3 600 / 3 900</span></div>
+        <div class="price-item"><span class="price-item-name">Extra длина</span><span class="price-item-cost">500</span></div>
+      </div>
+    </div>
+    <!-- Педикюр -->
+    <div class="price-category">
+      <div class="price-cat-header" onclick="togglePrice(this)">
+        <h3>Педикюр</h3>
+        <div class="price-toggle">+</div>
+      </div>
+      <div class="price-items">
+        <div class="price-item"><span class="price-item-name">Педикюр без покрытия</span><span class="price-item-cost">2 600 / 2 900 / 3 200</span></div>
+        <div class="price-item"><span class="price-item-name">С покрытием гель-лаком</span><span class="price-item-cost">3 100 / 3 400 / 3 700</span></div>
+        <div class="price-item"><span class="price-item-name">С покрытием лаком</span><span class="price-item-cost">2 900 / 3 200 / 3 400</span></div>
+        <div class="price-item"><span class="price-item-name">Экспресс-педикюр</span><span class="price-item-cost">2 400 / 2 700 / 3 000</span></div>
+        <div class="price-item"><span class="price-item-name">Снятие гель-лака</span><span class="price-item-cost">500</span></div>
+        <div class="price-item"><span class="price-item-name">Обработка стоп / пальчиков</span><span class="price-item-cost">1 400 / 1 700 / 1 900</span></div>
+        <div class="price-item"><span class="price-item-name">Зачистка онихолизиса</span><span class="price-item-cost">от 300</span></div>
+      </div>
+    </div>
+    <!-- Дизайн ногтей -->
+    <div class="price-category">
+      <div class="price-cat-header" onclick="togglePrice(this)">
+        <h3>Дизайн ногтей</h3>
+        <div class="price-toggle">+</div>
+      </div>
+      <div class="price-items">
+        <div class="price-item"><span class="price-item-name">Френч (ноги / руки)</span><span class="price-item-cost">500 / 700</span></div>
+        <div class="price-item"><span class="price-item-name">Градиент</span><span class="price-item-cost">150 / 1 000</span></div>
+        <div class="price-item"><span class="price-item-name">Простые дизайны</span><span class="price-item-cost">100</span></div>
+        <div class="price-item"><span class="price-item-name">Сложные дизайны</span><span class="price-item-cost">200–500</span></div>
+        <div class="price-item"><span class="price-item-name">Аэрография / плёнки</span><span class="price-item-cost">150 / 1 000</span></div>
+        <div class="price-item"><span class="price-item-name">Кошачий глаз</span><span class="price-item-cost">200</span></div>
+      </div>
+    </div>
+    <!-- Брови и ресницы -->
+    <div class="price-category">
+      <div class="price-cat-header" onclick="togglePrice(this)">
+        <h3>Брови и ресницы</h3>
+        <div class="price-toggle">+</div>
+      </div>
+      <div class="price-items">
+        <div class="price-item"><span class="price-item-name">Коррекция с окрашиванием</span><span class="price-item-cost">1 700</span></div>
+        <div class="price-item"><span class="price-item-name">Долговременная укладка YOUR CHOICE (+коррекция или окрашивание)</span><span class="price-item-cost">2 100</span></div>
+        <div class="price-item"><span class="price-item-name">Долговременная укладка ALL INCLUSIVE</span><span class="price-item-cost">2 400</span></div>
+        <div class="price-item"><span class="price-item-name">Коррекция</span><span class="price-item-cost">1 200</span></div>
+        <div class="price-item"><span class="price-item-name">Мужская коррекция</span><span class="price-item-cost">1 500</span></div>
+        <div class="price-item"><span class="price-item-name">Окрашивание бровей без коррекции</span><span class="price-item-cost">1 000</span></div>
+        <div class="price-item"><span class="price-item-name">Ламинирование ресниц с окрашиванием</span><span class="price-item-cost">2 900</span></div>
+        <div class="price-item"><span class="price-item-name">Окрашивание ресниц</span><span class="price-item-cost">700</span></div>
+        <div class="price-item"><span class="price-item-name">Удаление пушка</span><span class="price-item-cost">700</span></div>
+      </div>
+    </div>
+    <!-- Макияж -->
+    <div class="price-category">
+      <div class="price-cat-header" onclick="togglePrice(this)">
+        <h3>Макияж и причёски</h3>
+        <div class="price-toggle">+</div>
+      </div>
+      <div class="price-items">
+        <div class="price-item"><span class="price-item-name">Макияж вечерний</span><span class="price-item-cost">2 800</span></div>
+        <div class="price-item"><span class="price-item-name">Макияж дневной</span><span class="price-item-cost">2 500</span></div>
+        <div class="price-item"><span class="price-item-name">Укладка</span><span class="price-item-cost">2 300 / 2 600 / 2 800</span></div>
+        <div class="price-item"><span class="price-item-name">Курс «макияж для себя»</span><span class="price-item-cost">6 000</span></div>
+      </div>
+    </div>
+
+    <div class="price-note">
+      Цены указаны в формате <strong>мастер / эксперт / топ</strong>. SPA-уход массажной свечой включён в стоимость каждой процедуры.
+    </div>
+  </div>
+</section>
+
+<!-- PROMOTIONS -->
+<section class="section promos" id="promos">
+  <div class="section-header fade-in">
+    <span class="section-label">Выгодные предложения</span>
+    <h2 class="section-title">Наши <em>акции</em></h2>
+  </div>
+  <div class="promos-grid">
+    <div class="promo-card fade-in">
+      <div class="promo-content">
+        <span class="promo-tag">Новым гостям</span>
+        <h3>−300 ₽ на первый визит</h3>
+        <p>Приходите к нам впервые и получите скидку 300 рублей на любую процедуру. Знакомство должно быть приятным!</p>
+        <a href="https://dikidi.net/199099?p=1.pi-po" target="_blank" class="promo-btn">Записаться</a>
+      </div>
+    </div>
+    <div class="promo-card fade-in">
+      <div class="promo-content">
+        <span class="promo-tag">Приведи подругу</span>
+        <h3>Кэшбек 300 ₽ за подругу</h3>
+        <p>Рекомендуйте нас подругам — за каждую новую гостью мы вернём вам 300 рублей кэшбеком на следующий визит.</p>
+        <a href="https://dikidi.net/199099?p=1.pi-po" target="_blank" class="promo-btn">Подробнее</a>
+      </div>
+    </div>
+    <div class="promo-card fade-in">
+      <div class="promo-content">
+        <span class="promo-tag">С днём рождения!</span>
+        <h3>−10% в ваш праздник</h3>
+        <p>Дарим скидку 10% за 3 дня до и 3 дня после дня рождения. Пусть ваш праздник начнётся с красивых ногтей!</p>
+        <a href="https://dikidi.net/199099?p=1.pi-po" target="_blank" class="promo-btn">Записаться</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews" id="reviews">
+  <div class="section-header fade-in">
+    <span class="section-label">Что говорят наши гости</span>
+    <h2 class="section-title"><em>Отзывы</em> с Яндекс Карт</h2>
+  </div>
+  <div class="reviews-slider">
+    <div class="reviews-track" id="reviewsTrack">
+      <div class="review-card">
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+        <p class="review-text">Хочу отметить очень классный сервис и приятную атмосферу! Включают любимые сериалы, приятно пахнет, даже в уборной есть всё необходимое. Есть меню с напитками — администратор сделала очень вкусный кофе! Процедурой очень довольна, всё быстро и по красоте!</p>
+        <div class="review-author">
+          <div class="review-avatar">М</div>
+          <div><div class="review-name">Маргарита М.</div><div class="review-date">Октябрь 2025</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+        <p class="review-text">Прекрасное место для себя любимой! Делаю маникюр здесь уже давно, и каждый раз в полном восторге. Очень радует отношение к клиентам — всегда внимательное, тёплое и заботливое. Форма, архитектура, цвет — всё безупречно.</p>
+        <div class="review-author">
+          <div class="review-avatar">Е</div>
+          <div><div class="review-name">Елизавета К.</div><div class="review-date">Январь 2026</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+        <p class="review-text">Большой фанат этого потрясающего салона! Хожу сюда уже больше 5 лет. Подкупает отношение к клиентам — бережно, с заботой. Вежливые мастера, прекрасный интерьер, большая карта бесплатного кофе и чая.</p>
+        <div class="review-author">
+          <div class="review-avatar">А</div>
+          <div><div class="review-name">Анастасия Г.</div><div class="review-date">Май 2025</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+        <p class="review-text">Всё как всегда идеально! Уютная атмосфера салона и профессионализм мастера. Маникюр получился аккуратным, симметричным и очень качественным. Отдельное спасибо за индивидуальный подход и внимание к деталям.</p>
+        <div class="review-author">
+          <div class="review-avatar">А</div>
+          <div><div class="review-name">Анна В.</div><div class="review-date">Ноябрь 2025</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+        <p class="review-text">Была на маникюре — идеальные ногти! В конце процедуры растопили массажную свечу и сделали лёгкий массаж. Угостили кофе на альтернативном молоке — для меня это важно! Администратор была вежлива и приветлива. Рекомендую!</p>
+        <div class="review-author">
+          <div class="review-avatar">С</div>
+          <div><div class="review-name">Саша Г.</div><div class="review-date">Декабрь 2025</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+        <p class="review-text">Отличный сервис, топ-мастер сделала самый лучший маникюр за всю мою жизнь. Очень аккуратно, чисто и главное — выглядят очень красиво, прям как конфетки: яркие, блестящие…</p>
+        <div class="review-author">
+          <div class="review-avatar">А</div>
+          <div><div class="review-name">Александра Г.</div><div class="review-date">Февраль 2026</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-controls">
+      <button class="adv-btn" onclick="reviewSlide(-1)">←</button>
+      <button class="adv-btn" onclick="reviewSlide(1)">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section map-section" id="contacts">
+  <div class="section-header fade-in">
+    <span class="section-label">Как нас найти</span>
+    <h2 class="section-title">Наш <em>адрес</em></h2>
+  </div>
+  <div class="map-inner">
+    <div class="map-info fade-in">
+      <h3>Ждём вас в студии</h3>
+      <div class="map-address">
+        <div class="map-address-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div class="map-address-text">
+          <div class="addr">Комендантский пр., 53к1</div>
+          <div class="phone">+7 (999) 209-63-77</div>
+          <div class="hours">Санкт-Петербург · ежедневно</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap">
+        <a href="https://dikidi.net/199099?p=1.pi-po" target="_blank" class="btn-primary">Записаться онлайн</a>
+        <a href="whatsapp://send?phone=79992096377&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%D1%85%D0%BE%D1%87%D1%83%20%D0%BA%20%D0%92%D0%B0%D0%BC%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%F0%9F%A4%8D" class="btn-outline">WhatsApp</a>
+      </div>
+    </div>
+    <div class="map-frame fade-in">
+      <iframe src="https://yandex.com/map-widget/v1/?um=constructor%3A__&source=constructorLink&ll=30.244500%2C60.008500&z=16&pt=30.244500%2C60.008500%2Cpm2rdm" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Arbuzova <span>beauty</span></div>
+        <p>Уютная студия маникюра, педикюра и ресничек на Комендантском проспекте в Санкт-Петербурге</p>
+      </div>
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#price">Прайс</a>
+        <a href="#promos">Акции</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <a href="tel:+79992096377">+7 (999) 209-63-77</a>
+        <a href="#contacts">Комендантский пр., 53к1</a>
+        <a href="https://dikidi.net/199099?p=1.pi-po" target="_blank">Запись онлайн</a>
+      </div>
+      <div class="footer-col">
+        <h4>Соцсети</h4>
+        <a href="https://instagram.com/arbuzova.beauty/" target="_blank">Instagram</a>
+        <a href="https://vk.com/arbuzovabeauty" target="_blank">ВКонтакте</a>
+        <a href="tg://resolve?domain=arbuzovabeauty">Telegram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Arbuzova Beauty. Все права защищены.</span>
+      <div class="footer-socials">
+        <a href="https://instagram.com/arbuzova.beauty/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://vk.com/arbuzovabeauty" target="_blank" aria-label="VK"><svg viewBox="0 0 24 24"><path d="M13.162 18.994c.5 0 .5-.244.5-.488 0-.488-.674-2.95-3.154-5.4l-.002-.002a10.97 10.97 0 00-.504-.476v-.002c-.675-.598-.675-.95-.203-2.034.472-1.085 2.174-3.27 2.649-4.06.472-.79.472-1.136-.284-1.136H10.89c-.68 0-.68.244-1.157 1.034-.472.79-1.897 4.06-2.37 4.85-.472.79-.947.79-1.42.244-.472-.546-.472-1.78-.472-2.62 0-.842.054-2.032-.13-2.568-.13-.366-.532-.488-.87-.488-1.086 0-2.649 0-3.736.244-.485.11-.757.488-.485.512.746.069 1.283.553 1.427 1.303.338 1.744.338 4.06-.203 5.55-.337.927-.876 1.3-1.35 1.495-.337.138-.337.488.068.488h1.621c.608 0 .879-.244 1.147-.79.608-1.23 1.622-3.756 1.622-3.756s.337-.79.675-.79c.337 0 .675.395.675.79 0 .395-.054 2.327.284 3.756.337 1.43 1.215 1.526 1.755 1.526z"/></svg></a>
+        <a href="tg://resolve?domain=arbuzovabeauty" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Header scroll effect
+window.addEventListener('scroll',()=>{
+  document.getElementById('header').classList.toggle('scrolled',window.scrollY>50)
+})
+
+// Mobile menu
+function toggleMobile(){
+  document.getElementById('mobileMenu').classList.toggle('active')
+}
+
+// Advantages slider
+let advIdx=0
+const advTotal=7
+function advSlide(dir){
+  advIdx=Math.max(0,Math.min(advTotal-1,advIdx+dir))
+  document.getElementById('advTrack').style.transform=`translateX(-${advIdx*100}%)`
+  updateAdvDots()
+}
+function updateAdvDots(){
+  const dots=document.getElementById('advDots')
+  dots.innerHTML=''
+  for(let i=0;i<advTotal;i++){
+    const d=document.createElement('div')
+    d.className='adv-dot'+(i===advIdx?' active':'')
+    d.onclick=()=>{advIdx=i;advSlide(0)}
+    dots.appendChild(d)
+  }
+}
+updateAdvDots()
+
+// Auto-advance advantages
+setInterval(()=>{advIdx=(advIdx+1)%advTotal;advSlide(0)},4000)
+
+// Reviews slider
+let revIdx=0
+function reviewSlide(dir){
+  const track=document.getElementById('reviewsTrack')
+  const cards=track.children.length
+  const visible=window.innerWidth<768?1:3
+  const maxIdx=cards-visible
+  revIdx=Math.max(0,Math.min(maxIdx,revIdx+dir))
+  const pct=revIdx*(100/visible)
+  track.style.transform=`translateX(-${pct}%)`
+}
+
+// Price accordion
+function togglePrice(header){
+  const cat=header.parentElement
+  const wasOpen=cat.classList.contains('open')
+  // Close all
+  document.querySelectorAll('.price-category').forEach(c=>c.classList.remove('open'))
+  if(!wasOpen)cat.classList.add('open')
+}
+
+// Fade in on scroll
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+},{threshold:0.1})
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el))
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target=document.querySelector(a.getAttribute('href'))
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
+  })
+})
+</script>
+</body>
+</html>
