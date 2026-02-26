@@ -1416,8 +1416,13 @@ const heroPlayBtn=document.getElementById('heroPlayBtn')
 const heroVideo=document.getElementById('heroVideo')
 if(heroPlayBtn&&heroVideo){
   heroPlayBtn.addEventListener('click',()=>{
+    heroVideo.muted=false
     heroVideo.play()
     heroPlayBtn.classList.add('hidden')
+  })
+  heroVideo.addEventListener('click',()=>{
+    heroVideo.pause()
+    heroPlayBtn.classList.remove('hidden')
   })
   heroVideo.addEventListener('ended',()=>{
     heroPlayBtn.classList.remove('hidden')
